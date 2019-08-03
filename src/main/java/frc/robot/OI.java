@@ -7,7 +7,7 @@
 
 package frc.robot;
 
-//import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -16,11 +16,9 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-  /*
-  public Joystick forward;
-  public Joystick turn;
-  public Joystick lift;
-  */
+  
+  public Joystick driveStick;
+  public Joystick driveWheel;
 
   public XboxController controller;
   
@@ -35,13 +33,11 @@ public class OI {
   
 
   public OI() {
-    /*
-    forward = new Joystick(0);
-    turn = new Joystick(1);
-    lift = new Joystick(2);
-    */
+    
+    driveStick = new Joystick(0);
+    driveWheel = new Joystick(1);
 
-    controller = new XboxController(0);
+    controller = new XboxController(2);
 
     liftHigh = new JoystickButton(controller,0);
     
@@ -49,6 +45,14 @@ public class OI {
     liftLow = new JoystickButton(controller,2);
 
 
+  }
+
+  public double getThrottle(){
+    return -driveStick.getY();
+  }
+
+  public double getSteering(){
+    return .75 * driveWheel.getX();
   }
 
 

@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.commands.AutoLiftCommand;
 import frc.robot.commands.LiftManualCommand;
+import frc.robot.subsystems.DriveSystem;
 import frc.robot.subsystems.LiftSystem;
 
 
@@ -13,6 +14,7 @@ public class Robot extends TimedRobot {
 
   public static RobotMap robotMap;
   public static LiftSystem liftSystem;
+  public static DriveSystem driveSystem;
 
   Command AutoDriveCommand;
   Command AutoLiftCommand;
@@ -22,13 +24,13 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     oi = new OI();
     robotMap = new RobotMap();
+    driveSystem = new DriveSystem();
 
  }
 
   @Override
   public void robotPeriodic() {
     //dont put anything in here
-    Scheduler.getInstance().run();
   }
 
   @Override
@@ -73,6 +75,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    Scheduler.getInstance().run();
   }
 
 }
