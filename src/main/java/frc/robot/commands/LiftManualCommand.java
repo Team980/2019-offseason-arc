@@ -11,10 +11,10 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
-import frc.robot.subsystems.LiftSystem;
+//import frc.robot.subsystems.LiftSystem;
 
-public class LiftManualCommand extends Command {
-
+public class LiftManualCommand /*extends Command*/ {
+/*
     private static final double DEADBAND = 0.1;
 
     public LiftManualCommand() {
@@ -54,5 +54,5 @@ public class LiftManualCommand extends Command {
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
-    }
+    }*/
 }

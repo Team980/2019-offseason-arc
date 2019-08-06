@@ -6,11 +6,11 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Encoder;
 import frc.robot.Robot;
-import frc.robot.commands.LiftHoldCommand;
+//import frc.robot.commands.LiftHoldCommand;
 
 
-public class LiftSystem extends Subsystem {
-    private static final double ENCODER_MAX_TICK_COUNT = 22_000; // TODO: change this value later to trashpanda's map
+public class LiftSystem /*extends Subsystem*/ {
+ /*   private static final double ENCODER_MAX_TICK_COUNT = 22_000; // TODO: change this value later to trashpanda's map
 
     private static final double DEADZONE = 0.05;
 
@@ -61,5 +61,5 @@ public class LiftSystem extends Subsystem {
     @Override
     public void initDefaultCommand() {
         setDefaultCommand(new LiftHoldCommand());
-    }
+    }*/
 }

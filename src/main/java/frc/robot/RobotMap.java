@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
+import com.ctre.phoenix.sensors.PigeonIMU;
 
 import edu.wpi.first.wpilibj.CounterBase;
 
@@ -59,6 +60,9 @@ public class RobotMap {
   public WPI_TalonSRX intakeMotor;
   public WPI_TalonSRX wristMotor;
 
+  public PigeonIMU imu;
+  public double[] ypr;
+
   public RobotMap() {
     /*leftTopMotor = new WPI_TalonSRX(0);
     leftTopMotor.setInverted(true);
@@ -73,7 +77,7 @@ public class RobotMap {
     leftDrive = new SpeedControllerGroup(leftTopMotor, leftFrontMotor, leftBackMotor);
     leftDrive.setName("Drive System", "Left Speed Controllers");
 
-    leftEncoder = new Encoder(2, 3, false, CounterBase.EncodingType.k4X);
+    leftEncoder = new Encoder(7, 8, false, CounterBase.EncodingType.k4X);
     leftEncoder.setDistancePerPulse((Math.PI * (4 / 12)) / 2048);
     leftEncoder.setPIDSourceType(PIDSourceType.kRate);
     leftEncoder.setName("Drive System", "Left Encoder");
@@ -113,10 +117,13 @@ public class RobotMap {
 
     
     //lift
-    liftController = new WPI_TalonSRX(11); // TODO: get real values
+   /* liftController = new WPI_TalonSRX(11); // TODO: get real values
     liftEncoder = new Encoder(1, 2, false, CounterBase.EncodingType.k4X);
     intakeMotor = new WPI_TalonSRX(21); 
-    wristMotor = new WPI_TalonSRX(10);
+    wristMotor = new WPI_TalonSRX(10);*/
+
+    imu = new PigeonIMU(0);
+    ypr = new double[3];
   }
 
   public void setMotorSafetyEnabled(boolean isMotorSafetyEnabled) {
@@ -126,8 +133,12 @@ public class RobotMap {
     rightTopMotor.setSafetyEnabled(isMotorSafetyEnabled);
     rightFrontMotor.setSafetyEnabled(isMotorSafetyEnabled);
     rightBackMotor.setSafetyEnabled(isMotorSafetyEnabled);
+
+
     
   }
-
+  public double[] getYpr() {
+    return ypr; 
+  }
 
 }

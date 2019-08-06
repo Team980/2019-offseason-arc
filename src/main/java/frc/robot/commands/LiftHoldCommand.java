@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 
-public class LiftHoldCommand extends Command {
-    double targetPosition;
+public class LiftHoldCommand /*extends Command*/ {
+/*    double targetPosition;
     
     public LiftHoldCommand(){
        requires(Robot.liftSystem);
@@ -39,5 +39,5 @@ public class LiftHoldCommand extends Command {
 
     @Override
     protected void interrupted() {
-    }
+    }*/
 }

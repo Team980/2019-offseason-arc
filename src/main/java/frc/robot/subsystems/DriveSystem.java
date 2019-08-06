@@ -38,6 +38,7 @@ public class DriveSystem extends Subsystem {
 
       leftEncoder = Robot.robotMap.leftEncoder;
       //leftEncoder.setName("Drive System", "Left Encoder");
+      LiveWindow.add(leftEncoder);
 
       leftController = Robot.robotMap.leftController;
       //leftController.setName("Drive System", "Left PID Controller");
@@ -74,8 +75,8 @@ public class DriveSystem extends Subsystem {
       return (shifterSolenoid.get() == Gear.LOW.solenoidValue) ? Gear.LOW : Gear.HIGH;
   }
 
-  public void setGear(Gear gear) {
-      shifterSolenoid.set(gear.solenoidValue);
+  public void setGear(boolean gear) {
+      shifterSolenoid.set(gear);
   }
 
   public boolean isPIDEnabled() {
@@ -101,12 +102,12 @@ public class DriveSystem extends Subsystem {
   private void runAutoShift() {
       if (isAutoShiftEnabled) {
           if (Math.abs(leftEncoder.getRate()) > 4.5 && Math.abs(rightEncoder.getRate()) > 4.5) {
-              setGear(Gear.HIGH);
+              setGear(false);
 
               leftController.setPID(.03, 0, 0, 0);
               rightController.setPID(.03, 0, 0, 0);
           } else if (Math.abs(leftEncoder.getRate()) < 4.0 && Math.abs(rightEncoder.getRate()) < 4.0) {
-              setGear(Gear.LOW);
+              setGear(true);
 
               leftController.setPID(.1, 0, 0, 0);
               rightController.setPID(.1, 0, 0, 0);
