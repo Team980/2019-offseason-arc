@@ -77,7 +77,7 @@ public class RobotMap {
     leftDrive = new SpeedControllerGroup(leftTopMotor, leftFrontMotor, leftBackMotor);
     leftDrive.setName("Drive System", "Left Speed Controllers");
 
-    leftEncoder = new Encoder(7, 8, false, CounterBase.EncodingType.k4X);
+    leftEncoder = new Encoder(7, 8, false, CounterBase.EncodingType.k4X);//need to figure out where this is plugged in
     leftEncoder.setDistancePerPulse((Math.PI * (4 / 12)) / 2048);
     leftEncoder.setPIDSourceType(PIDSourceType.kRate);
     leftEncoder.setName("Drive System", "Left Encoder");
